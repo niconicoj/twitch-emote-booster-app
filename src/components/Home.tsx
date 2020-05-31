@@ -73,7 +73,7 @@ const Home: React.FC<Props> = (props) => {
       >
         <Grid item>
           <Typography variant="h5">
-            it's like aim booster but for twitch emotes. env {process.env.NODE_ENV} {process.env.REACT_APP_API_URL}
+            it's like aim booster but for twitch emotes.
           </Typography>
         </Grid>
         <Grid item>
