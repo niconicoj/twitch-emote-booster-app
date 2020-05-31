@@ -9,15 +9,9 @@ pipeline {
       }
       steps {
         sh './scripts/build.sh'
-      }
-    }
-
-    stage('Unit Test') {
-      steps {
         sh './scripts/test.sh'
       }
     }
-
     stage('Deliver') {
       agent {
         node {
