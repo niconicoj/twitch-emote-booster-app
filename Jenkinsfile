@@ -16,7 +16,7 @@ pipeline {
       agent {
         node {
           label 'debian-server'
-          customWorkspace 'twitch-emote/app'
+          customWorkspace 'twitch-emote-booster/app'
         }
       }
       when {
