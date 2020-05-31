@@ -13,11 +13,6 @@ pipeline {
     }
 
     stage('Unit Test') {
-      agent {
-        docker {
-          image "node:lts-alpine"
-        }
-      }
       steps {
         sh './scripts/test.sh'
       }
