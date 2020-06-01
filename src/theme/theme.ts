@@ -16,6 +16,9 @@ let theme = createMuiTheme({
       "Rubik",
       'sans-serif',
     ].join(','),
+    subtitle2: {
+      color: "#525252"
+    }
   },
 });
 

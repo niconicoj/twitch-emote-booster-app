@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, withStyles } from '@material-ui/core';
 import * as GameType from '../redux/game/models';
 import * as StatusType from '../redux/status/models';
 
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(4)
     },
     marginTopSmall: {
-      marginTop: theme.spacing(1)
+      marginTop: theme.spacing(2)
     },
     title: {
       flexGrow: 1,
@@ -24,6 +24,26 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
+
+const RetryButton = withStyles((theme: Theme) => ({
+  root: {
+    color: "#ffffff",
+    backgroundColor: "#28a745",
+    '&:hover': {
+      backgroundColor: "#28a745" 
+    }
+  }
+}))(Button);
+
+const HomeButton = withStyles((theme: Theme) => ({
+  root: {
+    color: "#ffffff",
+    backgroundColor: "#d32c3c",
+    '&:hover': {
+      backgroundColor: "#d32c3c"
+    }
+  }
+}))(Button);
 
 interface Props {
   game: GameType.Game,
@@ -42,18 +62,23 @@ const GameOver: React.FC<Props> = props => {
         alignItems="center"
       >
         <Grid item>
-          <Typography variant="h5">
+          <Typography variant="h4">
             You lost !
           </Typography>
         </Grid>
         <Grid item className={classes.menuButton}>
-          your score was {props.game.score}
+          <Typography variant="h5">
+            your score was {props.game.score}
+          </Typography>
         </Grid>
-        <Grid item className={classes.menuButton}>
-          <Button color="primary" variant="contained" onClick={(e) => props.start()}>retry ?</Button>
-        </Grid>
-        <Grid item className={classes.marginTopSmall}>
-          <Button color="primary" variant="contained" onClick={(e) => props.change("HOME")}> change difficult ?</Button>
+        <Grid item container
+          justify="center"
+          alignItems="stretch"
+        >
+          <Grid item xs={3} sm={2}>
+            <RetryButton color="primary" className={classes.marginTopSmall} fullWidth variant="contained" size="large" onClick={(e) => props.start()}>retry</RetryButton>
+            <HomeButton color="primary" className={classes.marginTopSmall} fullWidth variant="contained" size="large" onClick={(e) => props.change("HOME")}>change difficult</HomeButton>
+          </Grid>
         </Grid>
       </Grid>
     </div>

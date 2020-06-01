@@ -36,13 +36,13 @@ const Footer: React.FC = () => {
         justify="center"
         alignItems="center"
       >
-        <Typography variant="body2" className={classes.title}>
+        <Typography variant="subtitle2" align="center" className={classes.title}>
           Emote are property of Twitch Interactive or their respective owners. Do not reuse without obtaining their permission.
         </Typography>
-        <Typography variant="body2" className={classes.title}>
+        <Typography variant="subtitle2" align="center" className={classes.title}>
           This is an independent site not run by Twitch. I love the community and wanted to build this as to bring my own little pebble to the monument.
         </Typography>
-        <Typography variant="body2" className={classes.title}>
+        <Typography variant="subtitle2" align="center" className={classes.title}>
           feel free to contact me at contact@niconico.io.
         </Typography>
       </Grid>

@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
+      marginTop: theme.spacing(4)
     },
     titleIcon: {
       marginRight: theme.spacing(2),
@@ -25,20 +26,20 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const EasyButton = withStyles((theme: Theme) => ({
   root: {
-    color: theme.palette.getContrastText(green[500]),
-    backgroundColor: green[500],
+    color: "#ffffff",
+    backgroundColor: "#28a745",
     '&:hover': {
-      backgroundColor: green[700]
+      backgroundColor: "#28a745" 
     }
   }
 }))(Button);
 
 const NormalButton = withStyles((theme: Theme) => ({
   root: {
-    color: theme.palette.getContrastText(yellow[500]),
-    backgroundColor: yellow[500],
+    color: "#ffffff",
+    backgroundColor: "#f3a300",
     '&:hover': {
-      backgroundColor: yellow[700]
+      backgroundColor: "#f3a300"
     }
   }
 }))(Button);
@@ -46,9 +47,9 @@ const NormalButton = withStyles((theme: Theme) => ({
 const HardButton = withStyles((theme: Theme) => ({
   root: {
     color: theme.palette.getContrastText(red[500]),
-    backgroundColor: red[500],
+    backgroundColor: "#d32c3c",
     '&:hover': {
-      backgroundColor: red[700]
+      backgroundColor: "#d32c3c" 
     }
   }
 }))(Button);
@@ -72,18 +73,19 @@ const Home: React.FC<Props> = (props) => {
         alignItems="center"
       >
         <Grid item>
-          <Typography variant="h5">
+          <Typography variant="h5" className={classes.title}>
             it's like aim booster but for twitch emotes.
           </Typography>
         </Grid>
-        <Grid item>
-          <EasyButton onClick={(e) => init({name: "EASY", emoteCount: 100})} size="large" variant="contained" color="primary" className={classes.menuButton}>Easy</EasyButton>
-        </Grid>
-        <Grid item>
-          <NormalButton  onClick={(e) => init({name: "NORMAL", emoteCount: 200})} size="large" variant="contained" className={classes.menuButton}>Normal</NormalButton>
-        </Grid>
-        <Grid item>
-          <HardButton  onClick={(e) => init({name: "HARD", emoteCount: 500})} size="large" variant="contained"className={classes.menuButton}>Hard</HardButton>
+        <Grid item container
+          justify="center"
+          alignItems="stretch"
+        >
+          <Grid item xs={2} sm={1}>
+            <EasyButton onClick={(e) => init({name: "EASY", emoteCount: 100})} size="large" fullWidth variant="contained" className={classes.menuButton}>Easy</EasyButton>
+            <NormalButton onClick={(e) => init({name: "NORMAL", emoteCount: 200})} size="large" fullWidth variant="contained" className={classes.menuButton}>Normal</NormalButton>
+            <HardButton onClick={(e) => init({name: "HARD", emoteCount: 500})} size="large" fullWidth variant="contained"className={classes.menuButton}>Hard</HardButton>
+          </Grid>
         </Grid>
       </Grid>
     </div>
